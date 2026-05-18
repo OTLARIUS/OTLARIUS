@@ -57,7 +57,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:fl
 .category-count{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:rgba(201,168,76,.06);line-height:1;align-self:flex-end}
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .product-card{background:var(--card);border:1px solid rgba(201,168,76,.1);position:relative;overflow:hidden;transition:all .5s}
-.product-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,79,166,.05) 0%,transparent 60%);opacity:0;transition:opacity .4s}
+.product-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,79,166,.05) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
 .product-card:hover::after{opacity:1}
 .product-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 30px rgba(123,79,166,.1)}
 .product-card.coming-soon{opacity:.4;pointer-events:none;border-style:dashed;border-color:rgba(201,168,76,.15)}
@@ -66,7 +66,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:fl
 .product-card:hover .card-image img{transform:scale(1.05)}
 .card-label{position:absolute;top:16px;right:16px;z-index:2;font-size:8px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);padding:4px 10px}
 .card-label.purple{background:var(--purple);color:var(--white)}
-.card-body{padding:28px 24px 24px}
+.card-body{padding:28px 24px 24px;position:relative;z-index:1}
 .card-cat{font-size:8px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:block}
 .card-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:12px;line-height:1.2}
 .card-desc{font-size:11px;color:var(--dim);line-height:1.9;margin-bottom:20px}
