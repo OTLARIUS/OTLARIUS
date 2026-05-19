@@ -275,12 +275,13 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
 .footer-policies a:hover{color:var(--dim)}
 
 /* WHATSAPP */
-.whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:999;width:58px;height:58px;background:linear-gradient(135deg,#1a1a1a 0%,#0d0d0d 100%);border:1px solid rgba(123,79,166,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .4s;box-shadow:0 0 30px rgba(123,79,166,.4),0 8px 32px rgba(0,0,0,.5);animation:floatP 3s ease-in-out infinite}
-.whatsapp-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(123,79,166,.4);animation:ringP 2s ease-out infinite}
-.whatsapp-float:hover{transform:scale(1.1) translateY(-4px);border-color:rgba(123,79,166,.7);box-shadow:0 0 40px rgba(123,79,166,.4)}
+.whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:999;width:62px;height:62px;background:radial-gradient(circle at 35% 35%,#2a1040,#0d0408);border:1px solid rgba(123,79,166,.7);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .4s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 0 30px rgba(123,79,166,.55),0 0 70px rgba(123,79,166,.2),0 8px 32px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);animation:floatP 3s ease-in-out infinite}
+.whatsapp-float::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(123,79,166,.55);animation:ringP 2.2s ease-out infinite}
+.whatsapp-float::after{content:'';position:absolute;inset:-11px;border-radius:50%;border:1px solid rgba(123,79,166,.2);animation:ringP 2.2s ease-out infinite .6s}
+.whatsapp-float:hover{transform:scale(1.13) translateY(-5px);border-color:rgba(123,79,166,1);box-shadow:0 0 50px rgba(123,79,166,.75),0 0 100px rgba(123,79,166,.3),0 16px 48px rgba(0,0,0,.8)}
 .whatsapp-float svg{width:26px;height:26px;fill:#25d366}
 @keyframes floatP{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes ringP{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}
+@keyframes ringP{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.7)}}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
@@ -328,6 +329,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
   <a href="#diferenciais" onclick="closeNav()">Diferenciais</a>
   <a href="https://wa.me/5519987128880" target="_blank" onclick="closeNav()" style="color:var(--gold)">WhatsApp</a>
   <div style="height:1px;background:rgba(201,168,76,.1);margin:8px 0"></div>
+  <a href="pedido.html" onclick="closeNav()" style="color:var(--gold)">&#128230; Acompanhar Pedido</a>
   <a href="politica.html" onclick="closeNav()" style="font-size:10px;opacity:.6">Pol&iacute;tica de Privacidade</a>
   <a href="termos.html" onclick="closeNav()" style="font-size:10px;opacity:.6">Termos de Uso</a>
   <a href="devolucoes.html" onclick="closeNav()" style="font-size:10px;opacity:.6">Trocas e Devolu&ccedil;&otilde;es</a>
@@ -354,7 +356,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
     <li><a href="#contato">Contato</a></li>
     <li><a href="produtos.html">Cat&aacute;logo</a></li>
   </ul>
-  <a href="https://wa.me/5519987128880?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20os%20produtos%20da%20OTLARIUS." target="_blank" class="nav-cta">WhatsApp</a>
+  <a href="https://wa.me/5519987128880?text=%F0%9F%8C%9F%20*OTLARIUS%20%E2%80%94%20Atendimento*%0A%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AOl%C3%A1!%20Vim%20pelo%20site%20da%20OTLARIUS%20e%20gostaria%20de%20atendimento.%0A%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80" target="_blank" class="nav-cta">WhatsApp</a>
   <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
@@ -367,7 +369,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
   <p class="hero-sub">Produtos selecionados para uma experi&ecirc;ncia premium.</p>
   <div class="hero-btns">
     <a href="#selecao" class="btn-primary">&#10022; Conhecer produtos</a>
-    <a href="https://wa.me/5519987128880?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20os%20produtos%20da%20OTLARIUS." target="_blank" class="btn-secondary">&#9675; Falar no WhatsApp</a>
+    <a href="https://wa.me/5519987128880?text=%F0%9F%8C%9F%20*OTLARIUS%20%E2%80%94%20Atendimento*%0A%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AOl%C3%A1!%20Vim%20pelo%20site%20da%20OTLARIUS%20e%20gostaria%20de%20atendimento.%0A%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80" target="_blank" class="btn-secondary">&#9675; Falar no WhatsApp</a>
   </div>
   <div class="hero-scroll"><span>Explore</span><div class="scroll-bar"></div></div>
 </section>
@@ -646,18 +648,21 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
         <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Assunto</label>
         <select name="assunto" style="background:#141414;border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--dim);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;cursor:pointer;width:100%;appearance:none" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'">
           <option value="">Selecione um assunto</option>
-          <option value="Dúvida sobre produto">Dúvida sobre produto</option>
-          <option value="Informações de entrega">Informações de entrega</option>
+          <option value="D&uacute;vida sobre produto">D&uacute;vida sobre produto</option>
+          <option value="Informa&ccedil;&otilde;es de entrega">Informa&ccedil;&otilde;es de entrega</option>
           <option value="Pagamento">Pagamento</option>
-          <option value="Rastreio de pedido">Rastreio de pedido</option>
           <option value="Outro">Outro</option>
         </select>
       </div>
+
+
       <div style="display:flex;flex-direction:column;gap:6px">
         <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Mensagem</label>
         <textarea name="mensagem" required rows="5" placeholder="Escreva sua mensagem aqui..." style="background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;transition:border-color .3s;width:100%;resize:vertical" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'"></textarea>
       </div>
 
+      <input type="hidden" name="_replyto" value="rastreiosotlarius@gmail.com">
+      <input type="hidden" name="_subject" value="Nova mensagem — OTLARIUS">
       <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#080808;border:none;padding:16px 40px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:8px" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(201,168,76,.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         &#10022; Enviar mensagem
       </button>
@@ -687,6 +692,8 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
     </div>
     <div class="footer-nav">
       <div class="footer-nav-title">Legal</div>
+      
+  <a href="pedido.html" style="color:var(--gold)">&#128230; Acompanhar Pedido</a>
       <a href="politica.html">Pol&iacute;tica de Privacidade</a>
       <a href="termos.html">Termos de Uso</a>
       <a href="devolucoes.html">Trocas e Devolu&ccedil;&otilde;es</a>
@@ -709,7 +716,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
   </div>
 </footer>
 
-<a href="https://wa.me/5519987128880?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20os%20produtos%20da%20OTLARIUS." target="_blank" class="whatsapp-float">
+<a href="https://wa.me/5519987128880?text=%F0%9F%8C%9F%20*OTLARIUS%20%E2%80%94%20Atendimento*%0A%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0AOl%C3%A1!%20Vim%20pelo%20site%20da%20OTLARIUS%20e%20gostaria%20de%20atendimento.%0A%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80" target="_blank" class="whatsapp-float">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -755,13 +762,18 @@ function sendWhatsApp(e){
   var email=document.querySelector('[name="email"]').value;
   var assunto=document.querySelector('[name="assunto"]').value;
   var msg=document.querySelector('[name="mensagem"]').value;
-  var text='Ol%C3%A1!%20Mensagem%20via%20site%20OTLARIUS%0A%0A'
-    +'Nome:%20'+encodeURIComponent(nome)+'%0A'
-    +'E-mail:%20'+encodeURIComponent(email)+'%0A'
-    +'Assunto:%20'+encodeURIComponent(assunto)+'%0A%0A'
-    +'Mensagem:%20'+encodeURIComponent(msg);
+  var text='%F0%9F%8C%9F%20*OTLARIUS%20%E2%80%94%20Novo%20Contato*%0A'
+    +'%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A'
+    +'%F0%9F%91%A4%20*Nome:*%20'+encodeURIComponent(nome)+'%0A'
+    +'%F0%9F%93%A7%20*E-mail:*%20'+encodeURIComponent(email)+'%0A'
+    +'%F0%9F%93%8C%20*Assunto:*%20'+encodeURIComponent(assunto)+'%0A'
+    +'%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A'
+    +'%F0%9F%92%AC%20*Mensagem:*%0A'+encodeURIComponent(msg)+'%0A'
+    +'%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%0A'
+    +'_Enviado%20via%20loja%20OTLARIUS_';
+  var form=document.getElementById('contactForm');
+  form.style.display='none';
   document.getElementById('form-success').style.display='block';
-  document.getElementById('contactForm').reset();
   setTimeout(function(){window.open('https://wa.me/5519987128880?text='+text,'_blank');},800);
 }
 </script>

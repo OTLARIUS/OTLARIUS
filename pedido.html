@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acompanhar Pedido &mdash; OTLARIUS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a84c;--gold-l:#e8c97a;--black:#080808;--card:#141414;--purple:#7b4fa6;--white:#f5f0ea;--dim:rgba(245,240,234,.55)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;pointer-events:none;animation:floatUp linear infinite;opacity:0}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.7}90%{opacity:.3}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
+@keyframes breatheGlow{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.12)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%{left:-100%}100%{left:100%}}
+@keyframes successPulse{0%{transform:scale(.8);opacity:0}60%{transform:scale(1.05);opacity:1}100%{transform:scale(1);opacity:1}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.97);border-bottom:1px solid rgba(201,168,76,.1)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{width:36px;height:36px;object-fit:contain}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:6px;color:var(--gold);text-transform:uppercase}
+.nav-back{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s}
+.nav-back:hover{color:var(--gold)}
+
+/* MAIN */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+
+/* GLOWS */
+.bg-glow-1{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:700px;background:radial-gradient(ellipse,rgba(123,79,166,.22) 0%,rgba(201,168,76,.05) 40%,transparent 70%);pointer-events:none;animation:breatheGlow 7s ease-in-out infinite}
+.bg-glow-2{position:absolute;top:30%;right:10%;width:300px;height:300px;background:radial-gradient(ellipse,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none;animation:breatheGlow 9s ease-in-out infinite reverse}
+.bg-glow-3{position:absolute;bottom:20%;left:5%;width:250px;height:250px;background:radial-gradient(ellipse,rgba(123,79,166,.08) 0%,transparent 70%);pointer-events:none;animation:breatheGlow 11s ease-in-out infinite}
+
+/* CARD */
+.form-card{position:relative;z-index:1;width:100%;max-width:520px;background:linear-gradient(145deg,rgba(20,20,20,.98),rgba(12,12,12,.98));border:1px solid rgba(201,168,76,.18);padding:52px 44px;animation:fadeUp .9s forwards .1s;opacity:0;box-shadow:0 0 60px rgba(123,79,166,.12),0 32px 80px rgba(0,0,0,.6)}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold),rgba(123,79,166,.8),var(--gold),transparent)}
+.form-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,79,166,.04) 0%,transparent 60%);pointer-events:none}
+
+/* HEADER */
+.form-header{text-align:center;margin-bottom:36px;position:relative;z-index:1}
+.form-icon-wrap{position:relative;display:inline-block;margin-bottom:20px}
+.form-icon{font-size:36px;display:block;filter:drop-shadow(0 0 16px rgba(201,168,76,.5))}
+.form-icon-ring{position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(201,168,76,.2);animation:breatheGlow 3s ease-in-out infinite}
+.form-eyebrow{font-size:9px;font-weight:500;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);font-weight:300;color:var(--white);margin-bottom:10px;line-height:1.15}
+.form-title em{font-style:italic;color:var(--gold-l)}
+.form-sub{font-size:11px;color:var(--dim);line-height:2;max-width:360px;margin:0 auto}
+
+/* BADGES */
+.form-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:24px 0 28px;position:relative;z-index:1}
+.form-badge{display:flex;align-items:center;gap:6px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,234,.4);border:1px solid rgba(201,168,76,.1);padding:6px 12px;transition:all .3s}
+.form-badge:hover{color:var(--dim);border-color:rgba(201,168,76,.2)}
+.form-badge-icon{font-size:11px}
+
+/* DIVIDER */
+.form-divider{height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2),transparent);margin:0 0 28px;position:relative;z-index:1}
+
+/* FIELDS */
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;position:relative;z-index:1}
+.field-label{font-size:9px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:rgba(201,168,76,.8);display:flex;align-items:center;gap:8px}
+.field-label-icon{font-size:13px}
+.field input,.field select{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.12);border-bottom:1px solid rgba(201,168,76,.25);padding:14px 18px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;outline:none;transition:all .3s;width:100%;-webkit-appearance:none;appearance:none}
+.field input::placeholder{color:rgba(245,240,234,.2);font-style:italic}
+.field input:focus,.field select:focus{border-color:rgba(201,168,76,.4);border-bottom-color:var(--gold);box-shadow:0 4px 20px rgba(201,168,76,.06),0 0 0 1px rgba(201,168,76,.08)}
+.field select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.field select option{background:#141414;color:var(--white)}
+.optional-tag{font-size:7px;letter-spacing:2px;opacity:.35;font-weight:300;text-transform:uppercase;margin-left:4px}
+
+/* BUTTON */
+.submit-btn{width:100%;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-l) 50%,var(--gold) 100%);background-size:200% 100%;color:#080808;border:none;padding:18px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all .4s;position:relative;overflow:hidden;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:10px;z-index:1}
+.submit-btn::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:none}
+.submit-btn:hover{background-position:100% 0;transform:translateY(-2px);box-shadow:0 10px 40px rgba(201,168,76,.35),0 0 24px rgba(123,79,166,.2)}
+.submit-btn:hover::before{animation:shimmer .6s ease forwards}
+.submit-btn:active{transform:translateY(0)}
+.submit-btn:disabled{opacity:.7;cursor:not-allowed;transform:none}
+
+/* SUCCESS */
+.success-msg{display:none;text-align:center;padding:16px 0;position:relative;z-index:1}
+.success-check{font-size:44px;margin-bottom:20px;display:block;animation:successPulse .6s ease forwards}
+.success-line{width:40px;height:1px;background:linear-gradient(to right,transparent,var(--gold));margin:0 auto 20px}
+.success-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--white);margin-bottom:16px;line-height:1.2;animation:fadeUp .6s ease forwards .2s;opacity:0}
+.success-title em{font-style:italic;color:var(--gold-l)}
+.success-text{font-size:12px;color:var(--dim);line-height:2.1;margin-bottom:28px;animation:fadeUp .6s ease forwards .4s;opacity:0}
+.success-brand{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(201,168,76,.4);animation:fadeUp .6s ease forwards .6s;opacity:0}
+.success-divider{height:1px;width:60px;background:linear-gradient(to right,transparent,rgba(201,168,76,.3),transparent);margin:16px auto}
+
+/* FOOTER NOTE */
+.form-note{font-size:9px;color:rgba(245,240,234,.18);line-height:1.9;text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.04);font-style:italic;position:relative;z-index:1}
+
+/* PAGE FOOTER */
+footer{padding:28px 48px;border-top:1px solid rgba(201,168,76,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;letter-spacing:5px;color:var(--gold);text-transform:uppercase}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-link{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .3s}
+.footer-link:hover{color:var(--gold)}
+.footer-copy{font-size:9px;color:rgba(255,255,255,.12);letter-spacing:1px}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:32px;right:32px;z-index:999;width:54px;height:54px;background:linear-gradient(135deg,#1a1a1a,#0d0d0d);border:1px solid rgba(123,79,166,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .4s;box-shadow:0 0 24px rgba(123,79,166,.3),0 8px 32px rgba(0,0,0,.5);animation:floatP 3s ease-in-out infinite}
+.wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(123,79,166,.25);animation:ringP 2s ease-out infinite}
+.wa-float:hover{transform:scale(1.1) translateY(-4px);border-color:rgba(123,79,166,.7);box-shadow:0 0 40px rgba(123,79,166,.5)}
+.wa-float svg{width:23px;height:23px;fill:#25d366}
+@keyframes floatP{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes ringP{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.6)}}
+
+@media(max-width:600px){nav{padding:16px 24px}.form-card{padding:36px 24px}.form-badges{gap:6px}footer{padding:24px;flex-direction:column;text-align:center}.footer-links{justify-content:center}}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="data:image/png;base64,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" alt="OTLARIUS">
+    <span class="nav-logo-text">Otlarius</span>
+  </a>
+  <a href="index.html" class="nav-back">&larr; Voltar</a>
+</nav>
+
+<main>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+  <div class="bg-glow-3"></div>
+
+  <div class="form-card" id="formCard">
+
+    <div class="form-header">
+      <div class="form-icon-wrap">
+        <span class="form-icon">&#128230;</span>
+      </div>
+      <span class="form-eyebrow">Atualiza&ccedil;&atilde;o log&iacute;stica</span>
+      <h1 class="form-title">Acompanhar <em>Pedido</em></h1>
+      <p class="form-sub">Preencha as informa&ccedil;&otilde;es abaixo para que nossa equipe localize a atualiza&ccedil;&atilde;o mais recente do seu pedido.</p>
+    </div>
+
+    <div class="form-badges">
+      <div class="form-badge"><span class="form-badge-icon">&#10024;</span>Atendimento humanizado</div>
+      <div class="form-badge"><span class="form-badge-icon">&#128666;</span>Acompanhamento real</div>
+      <div class="form-badge"><span class="form-badge-icon">&#128242;</span>Resposta no WhatsApp</div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <form id="trackForm" onsubmit="sendTrack(event)">
+      <input type="hidden" name="_subject" value="Acompanhar Pedido &mdash; OTLARIUS">
+
+      <div class="field">
+        <label class="field-label"><span class="field-label-icon">&#128100;</span>Nome completo</label>
+        <input type="text" name="nome" required placeholder="Seu nome completo">
+      </div>
+
+      <div class="field">
+        <label class="field-label"><span class="field-label-icon">&#128242;</span>WhatsApp usado na compra</label>
+        <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000">
+      </div>
+
+      <div class="field">
+        <label class="field-label"><span class="field-label-icon">&#128230;</span>Produto comprado</label>
+        <select name="produto" required>
+          <option value="" disabled selected>Selecione o produto</option>
+          <option value="GlowFit">B&uuml;mmy&reg; GlowFit&trade;</option>
+          <option value="Progressiva Vegetal Havana">Progressiva Vegetal Havana</option>
+          <option value="Outro produto OTLARIUS">Outro produto OTLARIUS</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label"><span class="field-label-icon">&#128203;</span>N&uacute;mero do pedido<span class="optional-tag">(opcional)</span></label>
+        <input type="text" name="pedido" placeholder="Se tiver, informe aqui">
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span id="btnText">&#10022; Enviar solicita&ccedil;&atilde;o</span>
+      </button>
+
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <span class="success-check">&#9989;</span>
+      <div class="success-line"></div>
+      <h2 class="success-title">Solicita&ccedil;&atilde;o <em>recebida.</em></h2>
+      <p class="success-text">Nossa equipe ir&aacute; verificar as informa&ccedil;&otilde;es mais recentes do seu pedido e responder pelo WhatsApp informado.</p>
+      <div class="success-divider"></div>
+      <div class="success-brand">OTLARIUS &bull; Atendimento &amp; Experi&ecirc;ncia</div>
+    </div>
+
+    <p class="form-note">"As informa&ccedil;&otilde;es s&atilde;o verificadas manualmente pela equipe OTLARIUS junto ao sistema log&iacute;stico parceiro."</p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">Otlarius</div>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">In&iacute;cio</a>
+    <a href="produtos.html" class="footer-link">Produtos</a>
+    <a href="https://wa.me/5519987128880" target="_blank" class="footer-link">WhatsApp</a>
+    <a href="politica.html" class="footer-link">Privacidade</a>
+  </div>
+  <span class="footer-copy">&copy; 2025 OTLARIUS</span>
+</footer>
+
+<a href="https://wa.me/5519987128880?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20meu%20pedido%20OTLARIUS." target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+(function(){
+  var c=document.getElementById('particles');
+  var col=['rgba(201,168,76,.4)','rgba(201,168,76,.18)','rgba(123,79,166,.35)','rgba(232,201,122,.2)','rgba(123,79,166,.2)'];
+  for(var i=0;i<22;i++){
+    var p=document.createElement('div');p.className='particle';
+    var s=Math.random()*3+.5;
+    p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+col[Math.floor(Math.random()*col.length)]+';left:'+Math.random()*100+'%;animation-duration:'+(Math.random()*16+10)+'s;animation-delay:'+(Math.random()*10)+'s;';
+    c.appendChild(p);
+  }
+})();
+
+function sendTrack(e){
+  e.preventDefault();
+  var btn=document.getElementById('submitBtn');
+  var btnText=document.getElementById('btnText');
+  btnText.textContent='✨ Encaminhando para equipe...';
+  btn.disabled=true;
+  var form=document.getElementById('trackForm');
+  var fd=new FormData(form);
+  var xhr=new XMLHttpRequest();
+  xhr.open('POST','https://formspree.io/f/xvzyzrdy');
+  xhr.setRequestHeader('Accept','application/json');
+  xhr.onload=function(){
+    if(xhr.status===200){
+      form.style.transition='opacity .5s ease, transform .5s ease';
+      form.style.opacity='0';
+      form.style.transform='translateY(-10px)';
+      setTimeout(function(){
+        form.style.display='none';
+        var msg=document.getElementById('successMsg');
+        msg.style.display='block';
+        msg.style.animation='fadeIn .6s ease forwards';
+      },500);
+    } else {
+      btnText.textContent='✶ Enviar solicitação';
+      btn.disabled=false;
+    }
+  };
+  xhr.onerror=function(){
+    btnText.textContent='✶ Enviar solicitação';
+    btn.disabled=false;
+  };
+  xhr.send(fd);
+}
+</script>
+</body>
+</html>
