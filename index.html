@@ -52,20 +52,20 @@ nav.scrolled{background:rgba(8,8,8,.97);border-bottom:1px solid rgba(201,168,76,
 
 /* HERO */
 #hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden}
-.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(123,79,166,.12) 0%,transparent 70%);pointer-events:none;animation:breathe 6s ease-in-out infinite}
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(123,79,166,.28) 0%,rgba(123,79,166,.08) 50%,transparent 75%);pointer-events:none;animation:breathe 6s ease-in-out infinite}
 .hero-logo{width:140px;height:140px;object-fit:contain;margin-bottom:32px;opacity:0;animation:fadeUp 1s forwards .1s;filter:drop-shadow(0 0 20px rgba(201,168,76,.3))}
 .hero-eyebrow{font-size:9px;font-weight:500;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;opacity:0;animation:fadeUp 1s forwards .3s}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,80px);font-weight:300;line-height:1.1;color:var(--white);max-width:800px;margin-bottom:20px;opacity:0;animation:fadeUp 1s forwards .5s}
 .hero-title em{font-style:italic;color:var(--gold-l)}
 .hero-sub{font-size:13px;font-weight:300;letter-spacing:2px;color:var(--dim);max-width:480px;line-height:2;margin-bottom:52px;opacity:0;animation:fadeUp 1s forwards .7s}
 .hero-btns{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 1s forwards .9s}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold) 0%,var(--gold-l) 100%);padding:16px 40px;text-decoration:none;transition:all .3s;position:relative;overflow:hidden}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--black);background:linear-gradient(135deg,var(--gold) 0%,var(--gold-l) 100%);padding:16px 36px;text-decoration:none;transition:all .3s;position:relative;overflow:hidden;max-width:90vw}
 .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
 .btn-primary:hover::before{left:100%}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.3)}
-.btn-secondary{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid rgba(201,168,76,.4);padding:16px 40px;text-decoration:none;transition:all .3s}
+.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid rgba(201,168,76,.4);padding:16px 36px;text-decoration:none;transition:all .3s;max-width:90vw}
 .btn-secondary:hover{background:rgba(201,168,76,.08);border-color:var(--gold);transform:translateY(-2px)}
-.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp 1s forwards 1.1s}
+.hero-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp 1s forwards 1.1s;z-index:1}
 .hero-scroll span{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--dim)}
 .scroll-bar{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollAnim 1.5s ease-in-out infinite}
 @keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -78,14 +78,14 @@ nav.scrolled{background:rgba(8,8,8,.97);border-bottom:1px solid rgba(201,168,76,
 /* PRONÚNCIA */
 #pronuncia{padding:64px 24px;position:relative;overflow:hidden}
 .pronuncia-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.pronuncia-box{display:inline-flex;align-items:center;gap:20px;padding:28px 48px;border:1px solid rgba(201,168,76,.25);background:linear-gradient(135deg,rgba(201,168,76,.04) 0%,rgba(123,79,166,.04) 100%);position:relative;overflow:hidden}
+.pronuncia-box{display:inline-flex;align-items:center;gap:14px;padding:24px 32px;border:1px solid rgba(201,168,76,.25);background:linear-gradient(135deg,rgba(201,168,76,.05) 0%,rgba(123,79,166,.12) 100%);position:relative;overflow:hidden;max-width:95vw}
 .pronuncia-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
 .pronuncia-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.5),transparent)}
 .pronuncia-line{width:32px;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.6))}
 .pronuncia-line.rev{background:linear-gradient(to left,transparent,rgba(201,168,76,.6))}
 .pronuncia-icon{font-size:14px;color:rgba(201,168,76,.7);display:flex;align-items:center}
 .pronuncia-icon svg{width:16px;height:16px;fill:rgba(201,168,76,.6)}
-.pronuncia-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:4px;color:var(--white)}
+.pronuncia-text{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,28px);font-weight:300;letter-spacing:3px;color:var(--white);text-align:center;line-height:1.5}
 .pronuncia-text span{color:var(--gold-l);font-style:italic}
 .pronuncia-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-top:16px;display:block}
 
@@ -165,7 +165,7 @@ nav.scrolled{background:rgba(8,8,8,.97);border-bottom:1px solid rgba(201,168,76,
 .section-title em{font-style:italic;color:var(--gold-l)}
 .como-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto}
 .como-card{padding:40px 32px;background:rgba(201,168,76,.02);border:1px solid rgba(201,168,76,.1);position:relative;transition:all .4s;text-align:center}
-.como-card:hover{border-color:rgba(201,168,76,.2);background:rgba(201,168,76,.04);box-shadow:0 0 30px rgba(123,79,166,.08)}
+.como-card:hover{border-color:rgba(201,168,76,.2);background:rgba(201,168,76,.04);box-shadow:0 0 40px rgba(123,79,166,.22)}
 .como-step{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:rgba(201,168,76,.08);line-height:1;margin-bottom:20px}
 .como-icon{font-size:28px;margin-bottom:16px;display:block}
 .como-title{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
@@ -186,9 +186,9 @@ nav.scrolled{background:rgba(8,8,8,.97);border-bottom:1px solid rgba(201,168,76,
 .products-header{text-align:center;margin-bottom:72px}
 .products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:1000px;margin:0 auto}
 .product-card{background:var(--card);border:1px solid rgba(201,168,76,.1);position:relative;overflow:hidden;transition:all .5s}
-.product-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,79,166,.05) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.product-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,79,166,.14) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
 .product-card:hover::after{opacity:1}
-.product-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-6px);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 40px rgba(123,79,166,.12)}
+.product-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-6px);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 50px rgba(123,79,166,.3)}
 .product-image{height:260px;overflow:hidden;position:relative}
 .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .product-card:hover .product-image img{transform:scale(1.05)}
@@ -213,7 +213,7 @@ nav.scrolled{background:rgba(8,8,8,.97);border-bottom:1px solid rgba(201,168,76,
 .diferenciais-header{text-align:center;margin-bottom:72px}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
 .diff-card{padding:36px 28px;background:rgba(201,168,76,.02);border:1px solid rgba(201,168,76,.1);position:relative;transition:all .4s}
-.diff-card:hover{background:rgba(201,168,76,.04);border-color:rgba(201,168,76,.2);box-shadow:0 0 30px rgba(123,79,166,.08)}
+.diff-card:hover{background:rgba(201,168,76,.04);border-color:rgba(201,168,76,.2);box-shadow:0 0 40px rgba(123,79,166,.22)}
 .diff-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(201,168,76,.08);position:absolute;top:16px;right:20px;line-height:1}
 .diff-icon{font-size:26px;margin-bottom:16px;display:block}
 .diff-title{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
@@ -255,8 +255,8 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
 .footer-policies a:hover{color:var(--dim)}
 
 /* WHATSAPP */
-.whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:999;width:58px;height:58px;background:linear-gradient(135deg,#1a1a1a 0%,#0d0d0d 100%);border:1px solid rgba(123,79,166,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .4s;box-shadow:0 0 20px rgba(123,79,166,.2),0 8px 32px rgba(0,0,0,.5);animation:floatP 3s ease-in-out infinite}
-.whatsapp-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(123,79,166,.2);animation:ringP 2s ease-out infinite}
+.whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:999;width:58px;height:58px;background:linear-gradient(135deg,#1a1a1a 0%,#0d0d0d 100%);border:1px solid rgba(123,79,166,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .4s;box-shadow:0 0 30px rgba(123,79,166,.4),0 8px 32px rgba(0,0,0,.5);animation:floatP 3s ease-in-out infinite}
+.whatsapp-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(123,79,166,.4);animation:ringP 2s ease-out infinite}
 .whatsapp-float:hover{transform:scale(1.1) translateY(-4px);border-color:rgba(123,79,166,.7);box-shadow:0 0 40px rgba(123,79,166,.4)}
 .whatsapp-float svg{width:26px;height:26px;fill:#25d366}
 @keyframes floatP{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
@@ -276,7 +276,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
 
 /* RESPONSIVE */
 @media(max-width:900px){nav{padding:16px 24px}.nav-links,.nav-cta{display:none}.hamburger{display:flex}.sobre-inner{grid-template-columns:1fr;gap:48px}.sobre-logo{display:none}.products-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}.diff-grid{grid-template-columns:repeat(2,1fr)}.como-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
-@media(max-width:600px){.hero-btns{flex-direction:column;align-items:center}.diff-grid{grid-template-columns:1fr}footer{padding:48px 24px 32px}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;align-items:flex-start}.footer-policies{flex-wrap:wrap;gap:16px}.divider{padding:0 24px}.pronuncia-box{padding:20px 28px;gap:12px}}
+@media(max-width:600px){.hero-btns{flex-direction:column;align-items:center;width:100%;padding:0 24px}.btn-primary,.btn-secondary{width:100%;max-width:340px;letter-spacing:2px;font-size:9px}.hero-scroll{display:none}.diff-grid{grid-template-columns:1fr}footer{padding:48px 24px 32px}.footer-top{flex-direction:column}.footer-bottom{flex-direction:column;align-items:flex-start}.footer-policies{flex-wrap:wrap;gap:16px}.divider{padding:0 24px}.pronuncia-box{padding:20px 28px;gap:12px}}
 </style>
 </head>
 <body>
@@ -319,6 +319,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
     <li><a href="#como-funciona">Como funciona</a></li>
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contato">Contato</a></li>
     <li><a href="produtos.html">Cat&aacute;logo</a></li>
   </ul>
   <a href="https://wa.me/5519987128880?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20os%20produtos%20da%20OTLARIUS." target="_blank" class="nav-cta">WhatsApp</a>
@@ -348,7 +349,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
       <div class="pronuncia-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
       </div>
-      <div class="pronuncia-text">l&ecirc;-se: <span>OT-L&Aacute;-RI-US</span></div>
+      <div class="pronuncia-text" style="text-align:center;line-height:1.5">l&ecirc;-se:<br><span>OT-<br>L&Aacute;-RI-US</span></div>
       <div class="pronuncia-line rev"></div>
     </div>
     <span class="pronuncia-label">Pronuncia&ccedil;&atilde;o oficial da marca</span>
@@ -544,12 +545,55 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
     </div>
     <div class="faq-list">
       <div class="faq-item"><div class="faq-q" onclick="openFaq(this)"><span class="faq-qt">Como funciona a entrega?</span><i class="faq-ic">+</i></div><div class="faq-a"><div class="faq-a-in">A entrega &eacute; realizada nas regi&otilde;es atendidas pela nossa log&iacute;stica. Ap&oacute;s confirma&ccedil;&atilde;o do pedido, voc&ecirc; recebe as informa&ccedil;&otilde;es de acompanhamento via WhatsApp.</div></div></div>
-      <div class="faq-item"><div class="faq-q" onclick="openFaq(this)"><span class="faq-qt">Quais formas de pagamento s&atilde;o aceitas?</span><i class="faq-ic">+</i></div><div class="faq-a"><div class="faq-a-in">Aceitamos PIX, cart&atilde;o de cr&eacute;dito e pagamento na entrega. Voc&ecirc; escolhe o que for mais confort&aacute;vel.</div></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="openFaq(this)"><span class="faq-qt">Quais formas de pagamento s&atilde;o aceitas?</span><i class="faq-ic">+</i></div><div class="faq-a"><div class="faq-a-in">Aceitamos PIX e cart&atilde;o de cr&eacute;dito. O pagamento na entrega est&aacute; dispon&iacute;vel apenas em regi&otilde;es selecionadas &mdash; ao finalizar seu pedido, confirme a op&ccedil;&atilde;o dispon&iacute;vel para a sua regi&atilde;o.</div></div></div>
       <div class="faq-item"><div class="faq-q" onclick="openFaq(this)"><span class="faq-qt">Qual o prazo de entrega?</span><i class="faq-ic">+</i></div><div class="faq-a"><div class="faq-a-in">O prazo varia conforme a sua regi&atilde;o. Em geral, as entregas ocorrem entre 1 a 5 dias &uacute;teis ap&oacute;s a confirma&ccedil;&atilde;o do pedido.</div></div></div>
       <div class="faq-item"><div class="faq-q" onclick="openFaq(this)"><span class="faq-qt">Posso rastrear meu pedido?</span><i class="faq-ic">+</i></div><div class="faq-a"><div class="faq-a-in">Sim. Ap&oacute;s o despacho, voc&ecirc; recebe as informa&ccedil;&otilde;es de rastreio via WhatsApp e pode acompanhar em tempo real.</div></div></div>
       <div class="faq-item"><div class="faq-q" onclick="openFaq(this)"><span class="faq-qt">E se eu n&atilde;o gostar do produto?</span><i class="faq-ic">+</i></div><div class="faq-a"><div class="faq-a-in">Entre em contato via WhatsApp. Analisamos cada caso com aten&ccedil;&atilde;o e trabalhamos para encontrar a melhor solu&ccedil;&atilde;o para voc&ecirc;.</div></div></div>
       <div class="faq-item"><div class="faq-q" onclick="openFaq(this)"><span class="faq-qt">Como falo com o suporte?</span><i class="faq-ic">+</i></div><div class="faq-a"><div class="faq-a-in">Nosso atendimento &eacute; 100% via WhatsApp. Clique no bot&atilde;o flutuante na tela ou acesse pelo n&uacute;mero (19) 98712-8880.</div></div></div>
     </div>
+  </div>
+</section>
+
+
+<!-- CONTATO -->
+<section id="contato" style="padding:100px 24px;position:relative">
+  <div style="max-width:600px;margin:0 auto">
+    <div class="reveal" style="text-align:center;margin-bottom:52px">
+      <span class="section-tag">Fale conosco</span>
+      <h2 class="section-title">Envie sua <em>mensagem</em></h2>
+      <p style="font-size:12px;color:var(--dim);line-height:2;margin-top:8px">Preencha abaixo e responderemos pelo e-mail ou WhatsApp.</p>
+    </div>
+    <form action="https://formspree.io/f/xpwzgqbk" method="POST" id="contactForm" style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Seu nome</label>
+        <input type="text" name="nome" required placeholder="Como podemos te chamar?" style="background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;transition:border-color .3s;width:100%" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Seu e-mail</label>
+        <input type="email" name="email" required placeholder="seu@email.com" style="background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;transition:border-color .3s;width:100%" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Assunto</label>
+        <select name="assunto" style="background:#141414;border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--dim);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;cursor:pointer;width:100%;appearance:none" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'">
+          <option value="">Selecione um assunto</option>
+          <option value="Dúvida sobre produto">Dúvida sobre produto</option>
+          <option value="Informações de entrega">Informações de entrega</option>
+          <option value="Pagamento">Pagamento</option>
+          <option value="Rastreio de pedido">Rastreio de pedido</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Mensagem</label>
+        <textarea name="mensagem" required rows="5" placeholder="Escreva sua mensagem aqui..." style="background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;transition:border-color .3s;width:100%;resize:vertical" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'"></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="Nova mensagem — OTLARIUS">
+      <input type="hidden" name="_replyto" value="contato.otlarius@gmail.com">
+      <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#080808;border:none;padding:16px 40px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:8px" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(201,168,76,.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        &#10022; Enviar mensagem
+      </button>
+      <p id="form-success" style="display:none;text-align:center;font-size:11px;letter-spacing:2px;color:var(--gold);padding:16px;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.05)">&#10022; Mensagem enviada com sucesso! Responderemos em breve.</p>
+    </form>
   </div>
 </section>
 
@@ -627,6 +671,20 @@ if(ct){
     document.querySelectorAll('.c-dot').forEach(function(d,i){d.classList.toggle('active',i===best);});
   });
 }
+
+var form=document.getElementById('contactForm');
+if(form){form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=form.querySelector('button[type=submit]');
+  btn.textContent='Enviando...';btn.disabled=true;
+  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+  .then(function(r){
+    if(r.ok){
+      document.getElementById('form-success').style.display='block';
+      form.reset();btn.textContent='\u2736 Enviar mensagem';btn.disabled=false;
+    } else {btn.textContent='Erro. Tente novamente.';btn.disabled=false;}
+  }).catch(function(){btn.textContent='Erro. Tente novamente.';btn.disabled=false;});
+});}
 </script>
 </body>
 </html>
