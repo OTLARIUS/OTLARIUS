@@ -34,15 +34,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:fl
 .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:16px;opacity:0;animation:fadeUp .8s forwards .4s}
 .page-title em{font-style:italic;color:var(--gold-l)}
 .page-sub{font-size:12px;font-weight:300;letter-spacing:2px;color:var(--dim);max-width:480px;margin:0 auto;line-height:2;opacity:0;animation:fadeUp .8s forwards .6s}
-.filters-wrapper{padding:0 48px 60px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s forwards .8s}
-.filters-inner{max-width:1100px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.filter-btn{display:flex;align-items:center;gap:10px;padding:12px 28px;background:transparent;border:1px solid rgba(201,168,76,.2);color:var(--dim);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:400;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .35s;position:relative;overflow:hidden}
-.filter-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.08),transparent);opacity:0;transition:opacity .35s}
-.filter-btn:hover::before,.filter-btn.active::before{opacity:1}
-.filter-btn:hover{border-color:rgba(201,168,76,.5);color:var(--gold)}
-.filter-btn.active{border-color:var(--gold);color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.15)}
-.filter-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.filter-count{font-size:8px;opacity:.6;margin-left:2px}
+.filters-wrapper{padding:0 48px 48px;position:relative;z-index:1;opacity:0;animation:fadeUp .8s forwards .8s}
+.filters-inner{max-width:800px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.filter-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 22px;background:transparent;border:1px solid rgba(201,168,76,.15);color:rgba(245,240,234,.4);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:400;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px}
+.filter-btn:hover{border-color:rgba(201,168,76,.4);color:var(--dim)}
+.filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.06)}
+.filter-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;opacity:.7}
+.filter-count{font-size:8px;opacity:.5}
 .divider{display:flex;align-items:center;gap:20px;padding:0 48px;margin:0 auto;max-width:1200px}
 .divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.3),transparent)}
 .divider-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
@@ -65,7 +63,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:fl
 .card-image img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s ease}
 .product-card:hover .card-image img{transform:scale(1.05)}
 .card-label{position:absolute;top:16px;right:16px;z-index:2;font-size:8px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--gold);padding:4px 10px}
-.card-label.purple{background:var(--purple);color:var(--white)}
+.card-label.purple{background:var(--purple);color:var(--white)}.card-label.mv{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#080808;left:16px;right:auto}
 .card-body{padding:28px 24px 24px;position:relative;z-index:1}
 .card-cat{font-size:8px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--purple);margin-bottom:10px;display:block}
 .card-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:12px;line-height:1.2}
@@ -145,11 +143,13 @@ footer{padding:48px;border-top:1px solid rgba(201,168,76,.1);display:flex;align-
 </div>
 <div class="filters-wrapper">
   <div class="filters-inner">
-    <button class="filter-btn active" onclick="filterCat('all')" data-cat="all"><span class="filter-dot" style="background:var(--gold)"></span>Todos<span class="filter-count">(4)</span></button>
-    <button class="filter-btn" onclick="filterCat('wellness')" data-cat="wellness"><span class="filter-dot" style="background:#7ee8a2"></span>Wellness &amp; Bem-Estar<span class="filter-count">(1)</span></button>
-    <button class="filter-btn" onclick="filterCat('beauty')" data-cat="beauty"><span class="filter-dot" style="background:#f4a1c4"></span>Beauty &amp; Hair<span class="filter-count">(1)</span></button>
-    <button class="filter-btn" onclick="filterCat('selfcare')" data-cat="selfcare"><span class="filter-dot" style="background:#a8d8ea"></span>Selfcare &amp; Rotina<span class="filter-count">(0)</span></button>
-    <button class="filter-btn" onclick="filterCat('experience')" data-cat="experience"><span class="filter-dot" style="background:var(--purple)"></span>Experience Products<span class="filter-count">(0)</span></button>
+    <button class="filter-btn active" onclick="filterCat('all')" data-cat="all">Todos</button>
+    <button class="filter-btn" onclick="filterCat('mais-vendido')" data-cat="mais-vendido" style="border-color:rgba(201,168,76,.3)">&#127942; Mais Vendido</button>
+    <button class="filter-btn" onclick="filterCat('destaque')" data-cat="destaque" style="border-color:rgba(123,79,166,.3)">&#10024; Destaque</button>
+    <button class="filter-btn" onclick="filterCat('wellness')" data-cat="wellness">Wellness</button>
+    <button class="filter-btn" onclick="filterCat('beauty')" data-cat="beauty">Beauty &amp; Hair</button>
+    <button class="filter-btn" onclick="filterCat('selfcare')" data-cat="selfcare">Selfcare</button>
+    <button class="filter-btn" onclick="filterCat('experience')" data-cat="experience">Experience</button>
   </div>
 </div>
 <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
@@ -165,15 +165,15 @@ footer{padding:48px;border-top:1px solid rgba(201,168,76,.1);display:flex;align-
     <div class="category-count">01</div>
   </div>
   <div class="product-grid">
-    <a href="https://luvena-oficial.github.io/glowfit/" target="_blank" style="text-decoration:none;display:block;color:inherit"><div class="product-card reveal reveal-d1">
-      <div class="card-image"><img src="glowfit.jpg" loading="lazy"><span class="card-label">Destaque</span></div>
+    <a href="https://otlarius.github.io/Bummy-GlowFit-/" target="_blank" style="text-decoration:none;display:block;color:inherit"><div class="product-card reveal reveal-d1" data-tag="destaque">
+      <div class="card-image"><img src="glowfit.jpg" loading="lazy"><span class="card-label">Destaque</span><span class="card-label mv" style="top:46px">&#10024; Destaque OTLARIUS</span></div>
       <div class="card-body">
         <span class="card-cat">Suplemento Premium</span>
         <h3 class="card-name">B&uuml;mmy&reg; GlowFit&trade;</h3>
         <p class="card-desc">Thermo + Col&aacute;geno em uma c&aacute;psula di&aacute;ria para mais leveza, energia e praticidade.</p>
         <div class="card-tags"><span class="card-tag-item">Bem-estar</span><span class="card-tag-item">Energia</span><span class="card-tag-item">Rotina</span></div>
         <div class="card-footer">
-          <a href="https://luvena-oficial.github.io/glowfit/" target="_blank" class="card-cta">Ver produto <span class="arrow">&rarr;</span></a>
+          <a href="https://otlarius.github.io/Bummy-GlowFit-/" target="_blank" class="card-cta">Ver produto <span class="arrow">&rarr;</span></a>
           <span class="card-badge">OTLARIUS</span>
         </div>
       </div>
@@ -195,15 +195,15 @@ footer{padding:48px;border-top:1px solid rgba(201,168,76,.1);display:flex;align-
     <div class="category-count">02</div>
   </div>
   <div class="product-grid">
-    <a href="https://base-cobre-tudo.github.io/progressiva/" target="_blank" style="text-decoration:none;display:block;color:inherit"><div class="product-card reveal reveal-d1">
-      <div class="card-image"><img src="progressiva.jpg" loading="lazy"><span class="card-label purple">Beleza</span></div>
+    <a href="https://otlarius.github.io/Progressiva-Vegetal-creme-/" target="_blank" style="text-decoration:none;display:block;color:inherit"><div class="product-card reveal reveal-d1" data-tag="mais-vendido">
+      <div class="card-image"><img src="progressiva.jpg" loading="lazy"><span class="card-label purple">Beleza</span><span class="card-label mv">&#127942; Mais Vendido</span></div>
       <div class="card-body">
         <span class="card-cat">Cuidado Capilar</span>
         <h3 class="card-name">Progressiva Vegetal Havana</h3>
         <p class="card-desc">F&oacute;rmula vegetal para brilho intenso, liso duradouro e cuidado sofisticado.</p>
         <div class="card-tags"><span class="card-tag-item">Cabelo</span><span class="card-tag-item">Brilho</span><span class="card-tag-item">Vegetal</span></div>
         <div class="card-footer">
-          <a href="https://base-cobre-tudo.github.io/progressiva/" target="_blank" class="card-cta">Ver produto <span class="arrow">&rarr;</span></a>
+          <a href="https://otlarius.github.io/Progressiva-Vegetal-creme-/" target="_blank" class="card-cta">Ver produto <span class="arrow">&rarr;</span></a>
           <span class="card-badge">OTLARIUS</span>
         </div>
       </div>
@@ -271,7 +271,25 @@ footer{padding:48px;border-top:1px solid rgba(201,168,76,.1);display:flex;align-
 </a>
 <script>
 (function(){var c=document.getElementById('particles');var cols=['rgba(201,168,76,.4)','rgba(201,168,76,.2)','rgba(123,79,166,.3)','rgba(232,201,122,.25)'];for(var i=0;i<20;i++){var p=document.createElement('div');p.className='particle';var s=Math.random()*2.5+1;p.style.cssText='width:'+s+'px;height:'+s+'px;background:'+cols[Math.floor(Math.random()*cols.length)]+';left:'+Math.random()*100+'%;animation-duration:'+(Math.random()*14+10)+'s;animation-delay:'+(Math.random()*8)+'s;';c.appendChild(p);}})();
-function filterCat(cat){document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});document.querySelectorAll('.category-section').forEach(function(s){s.classList.toggle('hidden',cat!=='all'&&s.dataset.category!==cat);});document.querySelectorAll('.divider').forEach(function(d){d.style.display=cat==='all'?'':'none';});}
+function filterCat(cat){
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});
+  if(cat==='mais-vendido'||cat==='destaque'){
+    document.querySelectorAll('.category-section').forEach(function(s){s.classList.remove('hidden');});
+    document.querySelectorAll('.product-card,.c-card').forEach(function(c){
+      var tag=c.dataset.tag||'';
+      c.closest('.product-card')||c;
+      if(c.tagName==='A'||c.classList.contains('product-card')){
+        var show=c.dataset.tag===cat;
+        c.style.display=show?'':'none';
+      }
+    });
+    document.querySelectorAll('.divider').forEach(function(d){d.style.display='none';});
+  } else {
+    document.querySelectorAll('.product-card,.c-card').forEach(function(c){c.style.display='';});
+    document.querySelectorAll('.category-section').forEach(function(s){s.classList.toggle('hidden',cat!=='all'&&s.dataset.category!==cat);});
+    document.querySelectorAll('.divider').forEach(function(d){d.style.display=cat==='all'?'':'none';});
+  }
+}
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 function toggleNav(){var n=document.getElementById('mobileNav'),o=document.getElementById('overlay');n.style.display='flex';o.style.display='block';setTimeout(function(){n.classList.add('open');},10);o.onclick=closeNav;}
 function closeNav(){var n=document.getElementById('mobileNav'),o=document.getElementById('overlay');n.classList.remove('open');setTimeout(function(){n.style.display='none';o.style.display='none';},400);}
