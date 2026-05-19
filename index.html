@@ -563,7 +563,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
       <h2 class="section-title">Envie sua <em>mensagem</em></h2>
       <p style="font-size:12px;color:var(--dim);line-height:2;margin-top:8px">Preencha abaixo e responderemos pelo e-mail ou WhatsApp.</p>
     </div>
-    <form action="https://formspree.io/f/xpwzgqbk" method="POST" id="contactForm" style="display:flex;flex-direction:column;gap:16px">
+    <form id="contactForm" style="display:flex;flex-direction:column;gap:16px" onsubmit="sendWhatsApp(event)">
       <div style="display:flex;flex-direction:column;gap:6px">
         <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Seu nome</label>
         <input type="text" name="nome" required placeholder="Como podemos te chamar?" style="background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;transition:border-color .3s;width:100%" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'">
@@ -587,8 +587,7 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
         <label style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold)">Mensagem</label>
         <textarea name="mensagem" required rows="5" placeholder="Escreva sua mensagem aqui..." style="background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.15);padding:14px 18px;color:var(--white);font-family:'Montserrat',sans-serif;font-size:12px;outline:none;transition:border-color .3s;width:100%;resize:vertical" onfocus="this.style.borderColor='rgba(201,168,76,.5)'" onblur="this.style.borderColor='rgba(201,168,76,.15)'"></textarea>
       </div>
-      <input type="hidden" name="_subject" value="Nova mensagem — OTLARIUS">
-      <input type="hidden" name="_replyto" value="contato.otlarius@gmail.com">
+
       <button type="submit" style="background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#080808;border:none;padding:16px 40px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all .3s;margin-top:8px" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(201,168,76,.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         &#10022; Enviar mensagem
       </button>
@@ -625,9 +624,9 @@ footer{padding:60px 48px 40px;border-top:1px solid rgba(201,168,76,.1)}
   <div class="footer-bottom">
     <span class="footer-copy">&copy; 2025 OTLARIUS &mdash; Todos os direitos reservados.</span>
     <div class="footer-policies">
-      <a href="#">Pol&iacute;tica de Privacidade</a>
-      <a href="#">Termos de Uso</a>
-      <a href="#">Trocas e Devolu&ccedil;&otilde;es</a>
+      <a href="politica.html">Pol&iacute;tica de Privacidade</a>
+      <a href="termos.html">Termos de Uso</a>
+      <a href="devolucoes.html">Trocas e Devolu&ccedil;&otilde;es</a>
     </div>
   </div>
 </footer>
@@ -672,19 +671,21 @@ if(ct){
   });
 }
 
-var form=document.getElementById('contactForm');
-if(form){form.addEventListener('submit',function(e){
+function sendWhatsApp(e){
   e.preventDefault();
-  var btn=form.querySelector('button[type=submit]');
-  btn.textContent='Enviando...';btn.disabled=true;
-  fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
-  .then(function(r){
-    if(r.ok){
-      document.getElementById('form-success').style.display='block';
-      form.reset();btn.textContent='\u2736 Enviar mensagem';btn.disabled=false;
-    } else {btn.textContent='Erro. Tente novamente.';btn.disabled=false;}
-  }).catch(function(){btn.textContent='Erro. Tente novamente.';btn.disabled=false;});
-});}
+  var nome=document.querySelector('[name="nome"]').value;
+  var email=document.querySelector('[name="email"]').value;
+  var assunto=document.querySelector('[name="assunto"]').value;
+  var msg=document.querySelector('[name="mensagem"]').value;
+  var text='Ol%C3%A1!%20Mensagem%20via%20site%20OTLARIUS%0A%0A'
+    +'Nome:%20'+encodeURIComponent(nome)+'%0A'
+    +'E-mail:%20'+encodeURIComponent(email)+'%0A'
+    +'Assunto:%20'+encodeURIComponent(assunto)+'%0A%0A'
+    +'Mensagem:%20'+encodeURIComponent(msg);
+  document.getElementById('form-success').style.display='block';
+  document.getElementById('contactForm').reset();
+  setTimeout(function(){window.open('https://wa.me/5519987128880?text='+text,'_blank');},800);
+}
 </script>
 </body>
 </html>
